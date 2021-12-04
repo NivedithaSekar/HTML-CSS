@@ -12,12 +12,11 @@
 </head>
 <body>
     <center>
-        <div>
-            <button style="float: left;"><a href="10_question.html">Previous Question</a></button>
-        </div>
-        <form method="post" name="input-implementation-form" onsubmit="collectDetails()" action="javascript:collectDetails()">
+    <div id="form-container" style="display: block">
+        <button style="float: left;"><a href="10_question.html">Previous Question</a></button>
+        <form method="post" name="input-implementation-form" onsubmit="togglePage()" action="javascript:displayDetails()">
             <h1>Page with all INPUT elements</h1>
-            <!-- <label>Search: </label><input type="search" id="user-search" name="search"> -->
+            <label>Search: </label><input type="search" id="user-search" name="search">
             <div>
                 <p>
                     <!--hidden-->
@@ -158,30 +157,48 @@
                 </p>
             </div>
         </form>
+    </div>
+    <div id="details-container" style="display: none">
+        <h1>Here are your details</h1>
+        <p> Search Value: <span id="d-search"></span></p>
+        <p>ID: <span id="d-id"></span></p>
+        <p>Full Name: <span id="d-fullname"></span></p>
+        <p>Gender: <span id="d-gender"></span></p>
+        <p>DOB: <span id="d-dob"></span></p>
+        <p>Email: <span id="d-email"></span></p>
+        <p>Contact Details: <span id="d-contact"></span></p>
+        <p>Linkedin Profile: <span id="d-linkedin"></span></p>
+        <p>Notice Period: <span id="d-notice"></span></p>
+        <p>Experience in years: <span id="d-experience"></span></p>
+        <p>Prefered Week: <span id="d-preferedWeek"></span></p>
+        <p>Your Available Timing: <span id="d-availableTiming"></span></p>
+        <p>Tech Stack: <span id="d-techStack"></span></p>
+        <p>Resume Data: <span id="d-resumeData"></span></p>
+        <p>Color: <span id="d-color"></span></p>
+        <center><input type="button" value="Go back to the Form" onclick="togglePage()"></center>
+    </div>
     </center>
     <script language="JavaScript">
         const experience = document.querySelector('#user-experience');
-    const output = document.querySelector('.experience-output');
-    output.textContent = experience.value;
-    experience.addEventListener('input', function() {
+        const output = document.querySelector('.experience-output');
         output.textContent = experience.value;
-        });
+        experience.addEventListener('input', function() {
+            output.textContent = experience.value;
+            });
         
-    function collectDetails(){
-            var id = document.getElementById("user-id").value;
-            var fullName = document.getElementById("user-name").value;
-            var gender = document.querySelector('input[name="gender"]:checked').value;
-            var DOB = document.getElementById("user-DOB").value;
-            var email = document.getElementById("user-email").value;
-            var password = document.getElementById("user-password").value;
-            var countryCode = document.getElementById("user-countrycode").value;
-            var phone = document.getElementById("user-phone").value;
-            var linkedinProfile = document.getElementById("user-linkedin-profile").value;
-            var noticePeriod = document.getElementById("user-noticeperiod").value;
-            var experiencevalue = experience.value;
-            var preferedWeek = document.getElementById("user-preferedWeek").value;
-            var availableTiming = document.getElementById("user-availableTiming").value;
-            var endTime = document.getElementById("user-endTime").value;
+        function displayDetails(){
+            document.getElementById('d-search').innerHTML = document.getElementById("user-search").value;
+            document.getElementById('d-id').innerHTML = document.getElementById("user-id").value;
+            document.getElementById('d-fullname').innerHTML = document.getElementById("user-name").value;
+            document.getElementById('d-gender').innerHTML = document.querySelector('input[name="gender"]:checked').value;
+            document.getElementById('d-dob').innerHTML = document.getElementById("user-DOB").value;
+            document.getElementById('d-email').innerHTML = document.getElementById("user-email").value;
+            document.getElementById('d-contact').innerHTML = document.getElementById("user-countrycode").value + document.getElementById("user-phone").value; 
+            document.getElementById('d-linkedin').innerHTML = document.getElementById("user-linkedin-profile").value;
+            document.getElementById('d-notice').innerHTML = document.getElementById("user-noticeperiod").value;
+            document.getElementById('d-experience').innerHTML = experience.value;
+            document.getElementById('d-preferedWeek').innerHTML = document.getElementById("user-preferedWeek").value;
+            document.getElementById('d-availableTiming').innerHTML = `${document.getElementById("user-availableTiming").value} to ${document.getElementById("user-endTime").value}`;
             var techStack = document.getElementsByName('techStack');
             const techStackValue = [];
             for(let i=0;i<techStack.length;i++){
@@ -197,9 +214,23 @@
                     filesReceivedData = `File name ${resume[i].name}: Not a valid file type. Update your selection.`;
           }
             }
-            var color = document.getElementById("user-color").value;
-            console.log(id,fullName,gender,DOB,email,password,countryCode,phone,linkedinProfile,noticePeriod,experiencevalue,preferedWeek,availableTiming,endTime,techStackValue,filesReceivedData,color);
+            document.getElementById('d-techStack').innerHTML = techStackValue;
+            document.getElementById('d-resumeData').innerHTML = filesReceivedData;
+            document.getElementById('d-color').innerHTML = document.getElementById("user-color").value;
+            //console.log(search,id,fullName,gender,DOB,email,password,countryCode,phone,linkedinProfile,noticePeriod,experiencevalue,preferedWeek,availableTiming,endTime,techStackValue,filesReceivedData,color);
             return true;
+        }
+        function togglePage(){
+            console.log("togglePageCalled");
+            var formContainer = document.getElementById("form-container")
+            var detailsContainer = document.getElementById("details-container")
+            if(formContainer.style.display == "none"){
+                formContainer.style.display = "block";
+                detailsContainer.style.display = "none"
+            }else{
+                formContainer.style.display = "none";
+                detailsContainer.style.display = "block"
+            }
         }
     </script>
 </body>
