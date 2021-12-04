@@ -1,0 +1,73 @@
+<!-- Use the table tag to design given image  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Table</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            display: flex;
+            background-color: black;
+            flex-direction: column;
+        }
+        .container{
+            margin: 7.7em auto;
+            background-color: white;
+            padding: 0.5em;
+        }
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            padding: 1em;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p style="text-align: center">Health Chart</p>
+            <table>
+                <tr>
+                    <td rowspan="2">State of Health</td>
+                    <td colspan="2">Fasting Value</td>
+                    <td>After Eating</td>
+                </tr>
+                <tr>
+                    <td>Minimum</td>
+                    <td>Maximum</td>
+                    <td>2 hours after eating</td>
+                </tr>
+                <tr>
+                    <td>Healthy</td>
+                    <td>70</td>
+                    <td>100</td>
+                    <td>Less than 140</td>
+                </tr>
+                <tr>
+                    <td>Pre-Diabeted</td>
+                    <td>101</td>
+                    <td>126</td>
+                    <td>140 to 200</td>
+                </tr>
+                <tr>
+                    <td>Diabetes</td>
+                    <td>More than 126</td>
+                    <td>N/A</td>
+                    <td>More than 200</td>
+                </tr>
+            </table>
+    </div>
+    <br>
+    <div><center>
+        <button><a href="7_question.html">Previous Question</a></button>
+        <button><a href="9_question.html">Next Question</a></button>
+    </center></div>
+</body>
+</html>

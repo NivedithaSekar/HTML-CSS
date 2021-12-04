@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        ::placeholder { 
+            color: black;
+}
+        body {
+          background-color:black;
+          display: flex;
+          flex-direction: column;
+        }
+        .container{
+            background-color:white;
+            border: 10px double black; 
+            width: fit-content;
+            margin: 7.8em auto;
+        }
+        #header{
+            background-color: red;
+            color: white;
+            margin: 0.5em;
+        }
+        .form{
+            padding: 0 1em 0.6em;
+        }
+        
+        input {
+          width: 90%;
+          border-top-style: hidden;
+          border-right-style: hidden;
+          border-left-style: hidden;
+          border-bottom-style: double;
+          border-color: black;
+          font-family: "Brush Script MT", "Brush Script Std", "cursive";
+          text-align: center;
+          font-size: medium;
+        }
+        label{
+            font-family: "Arial Narrow",Arial,sans-serif; 
+            font-size: small;
+        }
+        .other-data{
+            font-family: "Lucida Console", Courier, monospace;
+            font-size: small;
+            font-weight: bold;
+        }
+        
+        
+      </style>
+</head>
+<body>
+    
+        <div class="container">
+         <div id="header">   
+            <h1 style="margin: 0em; padding:0 0.5em; font-size: 1.5em;"><bold> Yes! I want to subscribe to  <em style="font-family:Optima, sans-serif">Mag-O-Zine</em></bold></h1>
+        </div>
+        <form class="form" method="post">
+            <table>
+                <tr>
+                    <td colspan="2"><input type="text" id="firstName" placeholder="First Name"></td>
+                    <td><input type="text" id="lastName" placeholder="Last Name"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label for="firstName">First Name</label></td>
+                    <td><label for="lastName">Last Name</label></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input type="text" id="address" placeholder="Address" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><label for="address">Address</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="city" id="city"></td>
+                    <td><input type="text" placeholder="state" id="state"></td>
+                    <td><input type="text" placeholder="zipcode" id="zipcode"></td>
+                </tr>
+                <tr>
+                    <td><label for="city">City</label></td>
+                    <td><label for="state">State</label></td>
+                    <td><label for="zipcode">ZipCode</label></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="other-data">
+                        Subscribe for:
+                        <input type="checkbox" id="one-year" value="19.95" style="width:unset"><label for="one-year" style="font-family:unset">One year($19.95)</label>
+                        <input type="checkbox" id="two-year" value="30.00"style="width:unset"><label for="two-year" style="font-family:unset">Two years($35.00)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="other-data">
+                        Send me more information about:<br/>
+                        <input type="checkbox" id="Computer-Zine" value="Computer-Zine"style="width:unset"><label for="Computer-Zine" style="font-family:unset">Computer-Zine</label><br/>
+                        <input type="checkbox" id="Fishing-Zine" value="Fishing-Zine" style="width:unset"><label for="Fishing-Zine" style="font-family:unset">Fishing-Zine</label><br/>
+                        <input type="checkbox" id="Cat-O-Zine" value="Cat-O-Zine"style="width:unset"><label for="Cat-O-Zine" style="font-family:unset">Cat-O-Zine</label><br/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </div>
+        <br>
+        <div><center>
+            <button><a href="6_question.html">Previous Question</a></button>
+            <button><a href="8_question.html">Next Question</a></button>
+        </center></div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!-- In the form, add two radio buttons with grouping them for employee type(Salaried and own business)-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio button</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script language="JavaScript">
+        function togglePage(){
+            console.log("togglePageCalled");
+            var formContainer = document.getElementById("form-container")
+            var detailsContainer = document.getElementById("details-container")
+            if(formContainer.style.display == "none"){
+                formContainer.style.display = "block";
+                detailsContainer.style.display = "none"
+            }else{
+                formContainer.style.display = "none";
+                detailsContainer.style.display = "block"
+            }
+        }
+        function displayDetails(){
+            var form = document.getElementById("employee-details-form")
+            document.getElementById("d-name").innerHTML = document.getElementById("name").value
+            document.getElementById("d-email").innerHTML = document.getElementById("email").value
+            document.getElementById("d-employeeType").innerHTML = document.querySelector('input[name="employeeType"]:checked').value;
+        }
+    </script>
+    <center>
+        <div id="form-container" style="display: block">
+         <h1>Employee Details</h1>
+         <form method="post" name="employee-details-form" id="employee-details-form" onsubmit="togglePage()" action="javascript:displayDetails()">        
+            <table border="10" style="border-color: midnightblue;"cellspacing="0" cellpadding="10px">
+                <tr>
+                    <td>
+                    <label for="name">Name</label>
+                    </td>
+                    <td>
+                        <input type="text" name="name" id="name" placeholder="Enter your Name" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email</label>
+                    </td>
+                    <td>
+                        <input type="email" name="email" id="email" placeholder="Enter your Email address" pattern="[a-z0-9._]+@[a-z]+\.[a-z]{2,3}$" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td>
+                        Employee Type
+                    </td>
+                    <td>
+                        <input type="radio" name="employeeType" id="salaried" value="Salaried"> <label for="salaried">Salaried</label>
+                        <input type="radio" name="employeeType" id="ownBusiness" value="Own Business"> <label for="ownBusiness">Own Business</label>
+                    </td> -->
+                    <td colspan="2">
+                    <fieldset>
+                        <legend>Employee Type</legend>
+                        <input type="radio" name="employeeType" id="salaried" value="Salaried" required/> <label for="salaried">Salaried</label>
+                        <input type="radio" name="employeeType" id="ownBusiness" value="Own Business"/> <label for="ownBusiness">Own Business</label>
+                    </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td  colspan="2">
+                        <center><input type="submit" value="Submit"></center>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <div>
+                <button><a href="5_question.html">Previous Question</a></button>
+                <button><a href="7_question.html">Next Question</a></button>
+            </div>
+         </form>
+        </div>
+    <div id="details-container" style="display: none">
+        <p>Here are your details</p>
+        <p>Name: <span id="d-name"></span></p>
+        <p>Email: <span id="d-email"></span></p>
+        <p>Employee Type: <span id="d-employeeType"></span></p>
+        <input type="button" value="Go to Employee Details page" onclick="togglePage()">
+    </div> 
+</center> 
+</body>
+</html>

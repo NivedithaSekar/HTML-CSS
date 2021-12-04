@@ -1,0 +1,206 @@
+<!--
+    Create an HTML page, which should contain all types of input elements.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO: Input-Type</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <center>
+        <div>
+            <button style="float: left;"><a href="10_question.html">Previous Question</a></button>
+        </div>
+        <form method="post" name="input-implementation-form" onsubmit="collectDetails()" action="javascript:collectDetails()">
+            <h1>Page with all INPUT elements</h1>
+            <!-- <label>Search: </label><input type="search" id="user-search" name="search"> -->
+            <div>
+                <p>
+                    <!--hidden-->
+                    <input type="hidden" id="user-id" name="ID" value="3487">
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--text-->
+                    <label for="user-name">Full Name</label>
+                    <input type="text" id="user-name" name="name">
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--radio-->
+                    <fieldset style="width: 15%;">
+                        <legend>Gender</legend>
+                        <input type="radio" id="user-gender-male" name="gender" value="Male" required /> <label for="user-gender-male">Male</label>
+                        <input type="radio" id="user-gender-female" name="gender" value="Female" required /> <label for="user-gender-female">Female</label>
+                    </fieldset>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--date-->
+                    <label for="user-DOB">DOB</label>
+                    <input type="date" name="DOB" min="1980-01-01" max="2001-12-31" step="7" id="user-DOB">
+                </p>
+            </div>
+            <div>
+                <!--
+                    Input type - email
+                    pattern attribute - Because, a@b is a valid email address according to the default provided constraints, We use pattern attribute 
+                    multiple attribute allows several email addresses to be entered in the same input (separated by commas)
+                -->
+                <p>
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required multiple/>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--password-->
+                    <label for="user-password">Password</label>
+                    <input type="password" id="user-password" name="password">
+                </p>
+            </div>
+            <div>
+                <!--telephone-->
+                <p>
+                    <label for="user-countrycode">Code-</label>
+                    <label for="user-phone">Contact Number</label>
+                    <input type="tel" id="user-countrycode" name="countryCode" value="+91-" disabled style="width:30px">
+                    <input type="tel" id="user-phone" name="phoneNumber" minlength="10" maxlength="10" required/>
+                </p>
+            </div>
+            <div>
+                <!--url-->
+                <p>
+                    <label for="user-linkedin-profile">Linkedin Profile</label>
+                    <input type="url" id="user-linkedin-profile" name="linkedinProfile" pattern="^https?://((www|\w\w)\.)?linkedin.com/((in/[^/]+/?)|(pub/[^/]+/((\w|\d)+/?){3}))$"required/>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--number-->
+                    <label for="user-noticeperiod">Notice Period in days</label>
+                    <input type="number" name="noticePeriod" id="user-noticeperiod" min="18" step="1">
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--range-->
+                    <label for="user-experience">Experience in years</label>
+                    <input type="range" name="experience" id="user-experience" min="1" max="40" step="0.1" value="0">
+                    <output class="experience-output" for="user-experience"></output>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--week-->
+                    <label for="user-preferedWeek">Prefered Week</label>
+                    <input type="week" name="preferedWeek" id="user-preferedWeek">
+                </p>
+                <p>
+                    
+                    <!--Date-time-local format-->
+                    <label for="user-availableTiming">Available Date and Timing from:</label>
+                    <input type="datetime-local" name="availableTiming" id="user-availableTiming">
+                    <!--time-->
+                    <label for="user-endTime">Till</label>
+                    <input type="time" name="endTime" id="user-endTime">
+                    <!--month
+                    <input type="month" name="month" id="month">  -->
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--checkbox-->
+                    <fieldset style="width: 25%;">
+                        <legend>Known Tech Stack</legend>
+                        <input type="checkbox" id="java" name="techStack" value="Java">
+                        <label for="java">Java</label><br>
+                        <input type="checkbox" id="git" name="techStack" value="Git">
+                        <label for="git">Git</label><br>
+                        <input type="checkbox" id="ES" name="techStack" value="ES">
+                        <label for="ES">ES</label>
+                    </fieldset>
+                </p>
+            </div>
+            <div>
+                <!--file-->
+                <p>
+                    <label for="user-resume">Upload your Resume: </label>
+                    <input type="file" id="user-resume" name="resume" accept=".pdf" required />
+                    
+                </p>
+                <!-- <p>
+                    <label for="user-profile">Upload your Photo: </label>
+                    <input type="file" id="user-profile" name="profile" accept=".jpg,.png" capture="user"/>
+                    
+                </p> -->
+            </div>
+            <div>
+                <!--color-->
+                <p>
+                    <label for="user-color">Finally! Pick a color</label>
+                    <input type="color" id="user-color" name="color" />
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--submit-->
+                    <input type="submit" value="Submit"> 
+                    <!--reset-->
+                    <input type="reset">
+                </p>
+            </div>
+        </form>
+    </center>
+    <script language="JavaScript">
+        const experience = document.querySelector('#user-experience');
+    const output = document.querySelector('.experience-output');
+    output.textContent = experience.value;
+    experience.addEventListener('input', function() {
+        output.textContent = experience.value;
+        });
+        
+    function collectDetails(){
+            var id = document.getElementById("user-id").value;
+            var fullName = document.getElementById("user-name").value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var DOB = document.getElementById("user-DOB").value;
+            var email = document.getElementById("user-email").value;
+            var password = document.getElementById("user-password").value;
+            var countryCode = document.getElementById("user-countrycode").value;
+            var phone = document.getElementById("user-phone").value;
+            var linkedinProfile = document.getElementById("user-linkedin-profile").value;
+            var noticePeriod = document.getElementById("user-noticeperiod").value;
+            var experiencevalue = experience.value;
+            var preferedWeek = document.getElementById("user-preferedWeek").value;
+            var availableTiming = document.getElementById("user-availableTiming").value;
+            var endTime = document.getElementById("user-endTime").value;
+            var techStack = document.getElementsByName('techStack');
+            const techStackValue = [];
+            for(let i=0;i<techStack.length;i++){
+                if(techStack[i].checked){
+                    techStackValue.push(techStack[i].value);
+                }
+            }
+            const resume = document.querySelector('input[name="resume"]').files;
+            for(let i=0;i<resume.length;i++){
+                if(resume[i].type == "application/pdf") {
+                    filesReceivedData = `File name ${resume[i].name}, file size ${resume[i].size}.`;
+                } else {
+                    filesReceivedData = `File name ${resume[i].name}: Not a valid file type. Update your selection.`;
+          }
+            }
+            var color = document.getElementById("user-color").value;
+            console.log(id,fullName,gender,DOB,email,password,countryCode,phone,linkedinProfile,noticePeriod,experiencevalue,preferedWeek,availableTiming,endTime,techStackValue,filesReceivedData,color);
+            return true;
+        }
+    </script>
+</body>
+</html>

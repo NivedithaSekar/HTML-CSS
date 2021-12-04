@@ -1,0 +1,219 @@
+<!--
+    Write HTML input tags snippet to show default values for all Form elements.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default values - Input type</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .result{
+            border: 2px solid green;
+            display: none;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div>
+            <button style="float: left;"><a href="8_question.html">Previous Question</a></button>
+            <button style="float: right;"><a href="10_question.html">Next Question</a></button>
+        </div>
+        <form method="post" id="input-implementation-form" onsubmit="collectDetails()" action="javascript:showDetails()">
+            <h1>Input tag snippet to show the default values for form elements</h1>
+            <div>
+                <p>
+                    <label for="user-name">Full Name</label>
+                    <input type="text" id="user-name" name="name" value="User Name"><div class="result" id="name-default-value"></div>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <fieldset style="width: 15%;">
+                        <legend>Gender</legend>
+                        <input type="radio" id="user-gender-male" name="gender" value="Male" checked/> <label for="user-gender-male">Male</label>
+                        <input type="radio" id="user-gender-female" name="gender" value="Female" /> <label for="user-gender-female">Female</label>
+                        <div class="result" id="gender-default-value"></div>
+                    </fieldset>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <!--date-->
+                    <label for="user-DOB">DOB</label>
+                    <input type="date" name="DOB" min="1980-01-01" max="2001-12-31" id="user-DOB" value="1900-01-01">
+                    <div class="result" id="dob-default-value"></div>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value="username@mail.com" multiple/>
+                    <div class="result" id="email-default-value"></div>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="user-countrycode">Code-</label>
+                    <label for="user-phone">Contact Number</label>
+                    <input type="tel" id="user-countrycode" name="countryCode" value="+91-" disabled style="width:30px">
+                    <input type="tel" id="user-phone" name="phoneNumber" minlength="10" maxlength="10" value="9898767654" />
+                    <div class="result" id="phone-default-value"></div>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="user-linkedin-profile">Linkedin Profile</label>
+                    <input type="url" id="user-linkedin-profile" name="linkedinProfile" pattern="^https?://((www|\w\w)\.)?linkedin.com/((in/[^/]+/?)|(pub/[^/]+/((\w|\d)+/?){3}))$" value="http://www.linkedin.com/in/user-profile"/>
+                    <div class="result" id="profile-default-value"></div>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="user-noticeperiod">Notice Period in days</label>
+                    <input type="number" name="noticePeriod" id="user-noticeperiod" max="90" step="1" value="0">
+                    <div class="result" id="noticePeriod-default-value"></div>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="user-experience">Experience in years</label>
+                    <input type="range" name="experience" id="user-experience" min="1" max="40" step="0.1" value="0">
+                    <output class="experience-output" for="user-experience"></output>
+                    <div class="result" id="experience-default-value"></div>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="user-preferedWeek">Prefered Week</label>
+                    <input type="week" name="preferedWeek" id="user-preferedWeek" value="1900-W01">
+                    <div class="result" id="week-default-value"></div>
+                </p>
+                <p>
+                    <label for="user-availableTiming">Available Date and Timing from:</label>
+                    <input type="datetime-local" name="availableTiming" id="user-availableTiming" value="1900-01-01T00:00">
+                    <div class="result" id="time-default-value"></div>
+                    
+                    <label for="user-endTime">Till</label>
+                    <input type="time" name="endTime" id="user-endTime" value="00:00">
+                    <div class="result" id="endtime-default-value"></div>
+                    <!--month
+                    <input type="month" name="month" id="month">  -->
+                </p>
+            </div>
+            <div>
+                <p>
+                    <fieldset style="width: 25%;">
+                        <legend>Known Tech Stack</legend>
+                        <input type="checkbox" id="java" name="techStack" value="Java" checked>
+                        <label for="java">Java</label><br>
+                        <input type="checkbox" id="git" name="techStack" value="Git">
+                        <label for="git">Git</label><br>
+                        <input type="checkbox" id="ES" name="techStack" value="ES">
+                        <label for="ES">ES</label>
+                        <div class="result" id="tech-default-value"></div>
+                    </fieldset>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="user-resume">Upload your Resume: </label>
+                    <input type="file" id="user-resume" name="resume" accept=".pdf"/>
+                    <div class="result" id="resume-default-value"></div>
+                    
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="user-color">Finally! Pick a color</label>
+                    <input type="color" id="user-color" name="color" value="#000000"/>
+                    <div class="result" id="color-default-value"></div>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <input type="submit" value="Submit"> 
+                    <button style="background: unset;" type="reset">Reset</button>
+                </p>
+            </div>
+        </form>
+    </center>
+    <script language="JavaScript">
+        const experience = document.querySelector('#user-experience');
+    const output = document.querySelector('.experience-output');
+    output.textContent = experience.value;
+    experience.addEventListener('input', function() {
+        output.textContent = experience.value;
+        });
+        
+    function collectDetails(){
+            var fullName = document.getElementById("user-name");
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var DOB = document.getElementById("user-DOB");
+            var email = document.getElementById("user-email");
+            var countryCode = document.getElementById("user-countrycode");
+            var phone = document.getElementById("user-phone");
+            var linkedinProfile = document.getElementById("user-linkedin-profile");
+            var noticePeriod = document.getElementById("user-noticeperiod");
+            var experiencevalue = experience.value;
+            var preferedWeek = document.getElementById("user-preferedWeek");
+            var availableTiming = document.getElementById("user-availableTiming");
+            var endTime = document.getElementById("user-endTime");
+            var techStack = document.getElementsByName('techStack');
+            const techStackValue = [];
+            const defaultValues = [];
+            for(let i=0;i<techStack.length;i++){
+                if(techStack[i].checked){
+                    techStackValue.push(techStack[i].value);
+                }
+                if(techStack[i].defaultChecked){
+                    defaultValues.push(techStack[i].value);
+                }
+            }
+            const resume = document.querySelector('input[name="resume"]').files;
+            for(let i=0;i<resume.length;i++){
+                if(resume[i].type == "application/pdf") {
+                    filesReceivedData = `File name ${resume[i].name}, file size ${resume[i].size}.`;
+                } else {
+                    filesReceivedData = `File name ${resume[i].name}: Not a valid file type. Update your selection.`;
+          }
+            }
+            var color = document.getElementById("user-color");
+           // console.log(fullName,gender,DOB,email,countryCode,phone,linkedinProfile,noticePeriod,experiencevalue,preferedWeek,availableTiming,endTime,techStackValue,color);
+            document.getElementById("name-default-value").innerHTML = `Default value is ${fullName.defaultValue}. Current value is ${fullName.value}.`;
+            document.getElementById("gender-default-value").innerHTML = `Default value is ${gender.defaultValue}. Current value is ${gender.value}.`;
+            document.getElementById("dob-default-value").innerHTML = `Default value is ${DOB.defaultValue}. Current value is ${DOB.value}.`;
+            document.getElementById("email-default-value").innerHTML = `Default value is ${email.defaultValue}. Current value is ${email.value}.`;
+            document.getElementById("phone-default-value").innerHTML = `Default value is ${phone.defaultValue}. Current value is ${phone.value}.`;
+            document.getElementById("profile-default-value").innerHTML = `Default value is ${linkedinProfile.defaultValue}. Current value is ${linkedinProfile.value}.`;
+            document.getElementById("noticePeriod-default-value").innerHTML = `Default value is ${noticePeriod.defaultValue}. Current value is ${noticePeriod.value}.`;
+            document.getElementById("experience-default-value").innerHTML = `Default value is ${experience.defaultValue}. Current value is ${experience.value}.`;
+            document.getElementById("week-default-value").innerHTML = `Default value is ${preferedWeek.defaultValue}. Current value is ${preferedWeek.value}.`;
+            document.getElementById("time-default-value").innerHTML = `Default value is ${availableTiming.defaultValue}. Current value is ${availableTiming.value}.`;
+            document.getElementById("endtime-default-value").innerHTML = `Default value is ${endTime.defaultValue}. Current value is ${endTime.value}.`;
+            document.getElementById("tech-default-value").innerHTML = `Default value is ${defaultValues}. Current value is ${techStackValue}.`;
+            document.getElementById("resume-default-value").innerHTML = `We cannot set default value to the file input type for security reasons!`;
+            document.getElementById("color-default-value").innerHTML = `Default value is ${color.defaultValue}. Current value is ${color.value}.`;
+            return true;
+        }
+        const form = document.getElementById("input-implementation-form");
+        const divElements = document.querySelectorAll('div[class="result"]');
+        function showDetails(){
+            for(let i = 0; i < divElements.length; i++){
+                divElements[i].style.display = "block";
+            }
+            
+        }
+        function reset(){
+            for(let i = 0; i < divElements.length; i++){
+                divElements[i].style.display = "none";
+            }
+        }
+        form.addEventListener('reset', reset);
+    </script>      
+</body>
+</html>
